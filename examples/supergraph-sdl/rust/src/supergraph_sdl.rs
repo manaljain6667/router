@@ -34,6 +34,8 @@ impl Plugin for SupergraphSDL {
     fn supergraph_service(&self, service: supergraph::BoxService) -> supergraph::BoxService {
         // Clone our parsed schema for use in map_request
         let schema = self.schema.clone();
+
+        tracing::info!(monotonic_counter.apollo_authentication_success_count = 1u64,);
         // `ServiceBuilder` provides us with `map_request` and `map_response` methods.
         //
         // These allow basic interception and transformation of request and response messages.
